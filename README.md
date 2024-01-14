@@ -8,8 +8,7 @@ https://www.isca-speech.org/archive/pdfs/interspeech_2023/naowarat23b_interspeec
 ### Project setup
 1. Clone NeMo https://github.com/NVIDIA/NeMo/tree/main (The script is compatible with NeMo v1.12.0)
 2. Place scripts/confidence_estimator under NeMo/scripts
-3. 
+
 ### Train and test
 - scripts/train.py
 - scripts/test2.py
-- 
