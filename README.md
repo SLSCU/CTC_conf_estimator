@@ -10,5 +10,5 @@ https://www.isca-speech.org/archive/pdfs/interspeech_2023/naowarat23b_interspeec
 2. Place scripts/confidence_estimator under NeMo/scripts
 
 ### Train and test
-- scripts/train.py
-- scripts/test2.py
+- scripts/confidence_estimator/train.py
+- scripts/confidence_estimator/test2.py
