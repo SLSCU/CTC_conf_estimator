@@ -122,7 +122,7 @@ def get_alignment_label(params):
         for i in range(1, Tx + 1):
             for j in range(1, Ty + 1):
                 if x[i-1] == y[j-1]:      
-                    dist[i, j] = min(dist[i-1, j-1], dist[i-1, j], dist[i, j-1])
+                    dist[i, j] = min(dist[i-1, j-1], dist[i-1, j] + 1, dist[i, j-1] + 1)
                 else:
                     dist[i, j] = min(dist[i-1, j-1], dist[i-1, j], dist[i, j-1]) + 1
         # print(dist)
