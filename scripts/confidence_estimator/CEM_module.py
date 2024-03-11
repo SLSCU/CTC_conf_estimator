@@ -282,7 +282,7 @@ class CEM(nn.Module):
             return torch.tensor(get_alignment_label_thead( list(predictions), list(groundtruths) ))
 
 
-    def aggregation_probs(self, pred, pred_logits, pred_len, maxlen, by=0, agg='mean'):
+    def aggregation_probs(self, pred, pred_softmaxs, pred_len, maxlen, by=0, agg='mean'):
         # pred;  (B, T)
         # pred_logits; (B, T, C)
         # maxlen : int ; the biggest number of word across samples inside the batch
@@ -290,13 +290,13 @@ class CEM(nn.Module):
         # agg; mean, last, max    
         # return features (B, maxlen, C)
         
-        B, T, C = pred_logits.shape
+        B, T, C = pred_softmaxs.shape
 
-        if torch.is_tensor(pred_logits):
-            pred_softmaxs = pred_logits.softmax()
+        if torch.is_tensor(pred_softmaxs):
+            # pred_softmaxs = pred_logits.softmax()
             pred_softmaxs = pred_softmaxs.cpu().numpy()
-        else:
-            pred_softmaxs = spy.special.softmax(pred_logits, axis=-1)
+        # else:
+        #     pred_softmaxs = spy.special.softmax(pred_logits, axis=-1)
 
         if torch.is_tensor(pred):
             pred = pred.cpu().numpy()
